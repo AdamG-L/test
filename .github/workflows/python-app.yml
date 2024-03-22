@@ -31,4 +31,4 @@ jobs:
    
     - name: Test with pytest
       run: |
-        pytest --cov=test tests/
+        pytest --cov=src tests/
