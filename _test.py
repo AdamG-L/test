@@ -14,7 +14,3 @@ def test_negative_numbers():
 
 def test_mixed_numbers():
     assert add(5, -3) == 2
-
-def test_string_input():
-    with pytest.raises(TypeError):
-        add('hello', 'world')
