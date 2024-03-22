@@ -29,11 +29,5 @@ jobs:
 
     - name: Run tests with coverage
       run: |
-        pytest --cov=src
-      env:
-        CI: true
+        pytest
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
