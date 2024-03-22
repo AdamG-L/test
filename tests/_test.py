@@ -1,7 +1,5 @@
-import pytest
-
-def add(a, b):
-    return a + b
+# test main.py
+from src.main import add, subtract
 
 def test_addition():
     assert add(1, 2) == 3
