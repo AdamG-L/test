@@ -54,25 +54,9 @@ jobs:
             exit 1
           fi
 
-    - name: Display coverage report and test results
-      uses: actions/github-script@v5
-      with:
-        github-token: ${{ github.token }}
-        script: |
-          const fs = require('fs');
-          const { context, github } = require('@actions/github');
-          const coverageReport = fs.readFileSync('current.xml', 'utf8');
-        
-          github.issues.createComment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            issue_number: context.issue.number,
-            body: `
-              #### Coverage Report
-              \`\`\`
-              ${coverageReport}
-              \`\`\`
-            `
-          });
+    - name: Display XML content
+      run: |
+        xmlstarlet fo -t current.xml
+
 
 
