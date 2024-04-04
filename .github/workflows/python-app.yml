@@ -46,7 +46,9 @@ jobs:
       run: |
           current_coverage=$(xml sel -t -v "/coverage/@line-rate" cov.xml)
           previous_coverage=$(xml sel -t -v "/coverage/@line-rate" cov.xml)
+          
           if (( $(echo "$current_coverage < $previous_coverage" | bc -l) )); then
             echo "Code coverage decreased from previous commit."
             exit 1
+          fi
 
