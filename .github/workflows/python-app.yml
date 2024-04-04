@@ -62,11 +62,8 @@ jobs:
           const fs = require('fs');
 
           const coverageReport = fs.readFileSync('current.xml', 'utf8');
-    
-          const octokit = github.getOctokit(core.getInput('github-token'));
-
-    
-          octokit.issues.createComment({
+        
+          github.issues.createComment({
             owner: context.repo.owner,
             repo: context.repo.repo,
             issue_number: context.issue.number,
