@@ -56,7 +56,7 @@ jobs:
 
     - name: Display XML content
       run: |
-        xmlstarlet fo -t current.xml
+        xmlstarlet format -t -o current.xml
 
 
 
