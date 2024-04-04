@@ -60,7 +60,7 @@ jobs:
         github-token: ${{ github.token }}
         script: |
           const fs = require('fs');
-
+          const { context, github } = require('@actions/github');
           const coverageReport = fs.readFileSync('current.xml', 'utf8');
         
           github.issues.createComment({
