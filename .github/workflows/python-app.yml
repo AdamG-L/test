@@ -54,10 +54,31 @@ jobs:
             exit 1
           fi
 
-    - name: Upload test results
-      uses: actions/upload-artifact@v2
+    - name: Display coverage report and test results
+      uses: actions/github-script@v5
       with:
-        name: test-results
-        path: current.xml
+        github-token: ${{ github.token }}
+        script: |
+          const fs = require('fs');
+          const core = require('@actions/core');
+          const github = require('@actions/github');
+    
+          const coverageReport = fs.readFileSync('current.xml', 'utf8');
+    
+          const octokit = github.getOctokit(core.getInput('github-token'));
+    
+          const context = github.context;
+    
+          octokit.issues.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+            body: `
+              #### Coverage Report
+              \`\`\`
+              ${coverageReport}
+              \`\`\`
+            `
+          });
 
 
