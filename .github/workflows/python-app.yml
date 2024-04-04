@@ -56,7 +56,7 @@ jobs:
 
     - name: Display XML content
       run: |
-        xmlstarlet format -t -o current.xml
+        pytest --cov=src --cov-report xml:current.xml
 
 
 
