@@ -9,5 +9,8 @@ def subtract(a, b):
 def multiply(a, b):
     return a * b
 
-def print1()"
+def print1():
+    pass
+    
+def print2():
     pass
