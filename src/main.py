@@ -14,3 +14,6 @@ def print1():
     
 def print2():
     pass
+    
+def print3():
+    pass
