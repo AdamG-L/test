@@ -20,3 +20,6 @@ def print3():
 
 def print4():
     print("print4")
+
+def print5():
+    print("print5")
