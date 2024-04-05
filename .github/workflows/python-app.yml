@@ -59,7 +59,8 @@ jobs:
           fi
           
     - name: View processed XML file
-      run: xmlstarlet sel -t -m "//package" -v "." -n current.xml
+      run: 
+        pytest --cov=src
 
 
           
