@@ -57,13 +57,12 @@ jobs:
             echo "Code coverage decreased from previous commit."
             exit 1
           fi
+          
+    - name: View XML file with xmlstarlet
+      run: xmlstarlet fo current.xml
 
-    - name: Publish Test Results
-      uses: EnricoMi/publish-unit-test-result-action/macos@v2
-      if: always()
-      with:
-        files: |
-          current/**/*.xml
+
+          
 
 
 
