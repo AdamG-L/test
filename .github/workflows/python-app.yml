@@ -63,7 +63,7 @@ jobs:
       if: always()
       with:
         files: |
-          current.xml
+          current/**/*.xml
 
 
 
